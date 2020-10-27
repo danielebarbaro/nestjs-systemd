@@ -1,0 +1,17 @@
+[Unit]
+Description=NestJs Server
+
+[Service]
+ExecStart=ROOT_FOLDER/node_modules/.bin/nest start
+WorkingDirectory=ROOT_FOLDER
+Restart=always
+RestartSec=4
+#StandardOutput=syslog
+#StandardError=syslog
+#SyslogIdentifier=nestjs-node
+User=DEPLOYER_USER
+Group=DEPLOYER_USER
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
