@@ -1,10 +1,4 @@
 #!/bin/bash
-#
-# This script should be run via curl:
-#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/danielebarbaro/nestjs-systemd/main/install.sh)"
-# or via wget:
-#   sh -c "$(wget -qO- https://raw.githubusercontent.com/danielebarbaro/nestjs-systemd/main/install.sh)"
-
 if [[ $EUID -ne 0 ]]; then
    echo "\n❌ You must be root to do this."
    exit 1
