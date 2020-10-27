@@ -1,7 +1,7 @@
 #!/bin/bash
 if [[ $EUID -ne 0 ]]; then
-   echo "\n❌ You must be root to do this."
-   exit 1
+    echo -e "❌ You must be root to do this."
+    exit 1
 fi
 
 read -p "Enter a valid node user (deployer): " user
@@ -25,11 +25,11 @@ fi
 touch /etc/sudoers.d/${user}
 
 if [[ ${user} != "" ]]; then
-    sed -e "s#DEPLOYER_USER#$user#g" "templates/etc/sudoers.d/DEPLOYER_USER" > "/etc/sudoers.d/$user"
+    sed -e "s#DEPLOYER_USER#$user#g" "templates/etc/sudoers.d/DEPLOYER_USER" >"/etc/sudoers.d/$user"
 fi
 
 if [[ ${user} != "" && ${clean_folder} != "" ]]; then
-    sed -e "s#DEPLOYER_USER#$user#g; s#ROOT_FOLDER#$clean_folder#g" "templates/etc/systemd/system/nodeserver.service" > "/etc/systemd/system/nodeserver.service"
+    sed -e "s#DEPLOYER_USER#$user#g; s#ROOT_FOLDER#$clean_folder#g" "templates/etc/systemd/system/nodeserver.service" >"/etc/systemd/system/nodeserver.service"
 fi
 
 chmod 440 /etc/sudoers.d/${user}
