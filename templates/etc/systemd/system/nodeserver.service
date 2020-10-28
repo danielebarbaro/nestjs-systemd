@@ -10,7 +10,7 @@ RestartSec=4
 #StandardError=syslog
 #SyslogIdentifier=nestjs-node
 User=DEPLOYER_USER
-Group=DEPLOYER_USER
+Group=DEPLOYER_GROUP
 Environment=NODE_ENV=production
 
 [Install]
